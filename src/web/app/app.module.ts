@@ -1,0 +1,39 @@
+import {NgModule} from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+
+import {AppRoutingModule} from './app-routing.module';
+import {AppComponent} from './app.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {MessageService} from "primeng/api";
+import {HttpClientModule} from "@angular/common/http";
+import {ReportComponent} from './domain/report/report.component';
+import {FileUploadModule} from "primeng/fileupload";
+import {ToastModule} from "primeng/toast";
+import {InputTextModule} from "primeng/inputtext";
+import {FormsModule} from "@angular/forms";
+import {ToolbarModule} from "primeng/toolbar";
+
+@NgModule({
+  declarations: [
+    AppComponent,
+    ReportComponent,
+
+  ],
+  imports: [
+    BrowserModule,
+    HttpClientModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
+    FileUploadModule,
+    ToastModule,
+    InputTextModule,
+    FormsModule,
+    ToolbarModule,
+  ],
+  providers: [
+    MessageService
+  ],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}

@@ -1,0 +1,61 @@
+.page {
+  width: 21cm;
+  min-height: 29.7cm;
+  padding: 2cm;
+  margin: 1cm auto;
+  border: 1px #D3D3D3 solid;
+  border-radius: 5px;
+  background: white;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+@page {
+  size: A4;
+  margin: 0;
+}
+
+@media print {
+
+  body {
+    display: table;
+    table-layout: fixed;
+    padding-top: 2.5cm;
+    padding-bottom: 2.5cm;
+    height: auto;
+  }
+
+  .no-print {
+    display: none;
+  }
+
+  .page {
+    box-shadow: none;
+    border: 0;
+    margin: 0;
+    color: #000;
+    background-color: #fff;
+  }
+
+  table {
+    page-break-after: auto;
+  }
+
+  tr {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  td {
+    page-break-inside: avoid;
+    page-break-after: auto;
+  }
+
+  thead {
+    display: table-header-group;
+  }
+
+  tfoot {
+    display: table-footer-group;
+  }
+
+}

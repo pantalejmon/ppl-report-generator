@@ -1,0 +1,61 @@
+<div class="no-print">
+  <p-toolbar class="w-100">
+    <p-fileUpload (onUpload)="onUpload($event)" [auto]="true"
+                  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                  chooseIcon="pi pi-file-excel"
+                  chooseLabel="Wgraj" class="ml-3" mode="basic"
+                  name="excel" url="api/report">
+    </p-fileUpload>
+    <input *ngIf="report" [(ngModel)]="contract" pInputText placeholder="Numer umowy">
+    <button (click)="print()" *ngIf="report" icon="pi pi-print" label="Wydruk" pButton></button>
+  </p-toolbar>
+</div>
+
+<div *ngIf="report" class="page">
+
+  <p class="h5 text-center p-text-bold"> Oświadczenie o miesięcznej liczbie godzin świadczenia usług </p>
+  <p class="h5 text-center p-text-bold">oraz ich rodzaju</p>
+  <p class="h5 text-center p-text-bold"> w ramach umowy o świadczenie usług </p>
+
+  <p class="h5 p-text-justify my-2 ">
+    Ja, niżej podpisany/podpisana {{report.name}}, oświadczam, iż w okresie
+    {{report.from}}-{{report.to}} świadczyłem/świadczyłam usługi w ramach
+    Umowy nr {{contract}} o Świadczenie Usług, w
+    następującym wymiarze:
+  </p>
+
+  <table class="mt-4">
+    <thead>
+    <th class=" w-60-px text-center">Lp.</th>
+    <th class="text-center">Rodzaj Usługi</th>
+    <th class="text-center">Liczba godzin</th>
+    </thead>
+    <tbody>
+    <tr *ngFor="let task of report.tasks;  let i = index">
+      <td class="p-text-right">{{i + 1}}</td>
+      <td class="p-text-left"><span class="p-text-bold">{{task.key}}</span> {{task.summary}}</td>
+      <td class="p-text-center">{{task.hours}}</td>
+    </tr>
+    </tbody>
+  </table>
+
+
+  <div class="p-grid mt-5">
+    <div class="p-col-4 p-offset-7 p-text">
+      Suma: {{report.sumHours()}}
+    </div>
+    <div class="p-col-4 p-offset-8 p-text-bold text-center">
+      Zleceniobiorca
+    </div>
+
+    <div class="p-col-4 p-offset-8 border-top mt-5 text-center">
+      Pan/Pani {{report.name}}
+    </div>
+
+    <div class="p-col-4 p-offset-8 text-center">
+      data: {{report.date}}
+    </div>
+
+
+  </div>
+</div>
