@@ -1,5 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Report} from "src/model/report/report.model";
+import {VersionService} from "../../infrastructure/version/version.service";
 
 @Component({
   selector: 'app-report',
@@ -11,7 +12,7 @@ export class ReportComponent implements OnInit {
   report: Report;
   contract: string;
 
-  constructor() {
+  constructor(public versionService: VersionService) {
   }
 
   ngOnInit(): void {

@@ -1,5 +1,5 @@
 <div class="no-print">
-  <p-toolbar class="w-100">
+  <p-toolbar class="w-screen">
     <p-fileUpload (onUpload)="onUpload($event)" [auto]="true"
                   accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                   chooseIcon="pi pi-file-excel"
@@ -57,5 +57,22 @@
     </div>
 
 
+  </div>
+</div>
+
+<div class="no-print">
+  <div class="w-screen absolute bottom-0">
+    <div class="w-screen p-toolbar flex flex-wrap align-items-center">
+      <div class="flex align-items-center justify-content-start w-10rem">
+        Autor: JJ
+      </div>
+      <div class="flex-grow-1 flex align-items-center justify-content-center">
+        Wersja: {{versionService.version}}
+      </div>
+
+      <div class="flex align-items-center justify-content-end w-10rem">
+        <a href="https://github.com/pantalejmon/ppl-report-generator"> <i class="pi pi-github text-2xl"></i></a>
+      </div>
+    </div>
   </div>
 </div>

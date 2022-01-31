@@ -21,6 +21,12 @@ export class Report {
         this.from = (<Date>this.from).toLocaleDateString();
         this.to = (<Date>this.to).toLocaleDateString();
     }
+
+    sumHours(): number {
+        return this.tasks
+            .map(task => task.hours)
+            .reduce((a, b) => a + b, 0);
+    }
 }
 
 export type Task = {

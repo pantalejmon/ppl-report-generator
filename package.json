@@ -1,6 +1,6 @@
 {
   "name": "ppl-report-generator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "",
   "author": "pantalejmon",
   "private": true,
@@ -9,7 +9,7 @@
     "prebuild": "rimraf dist",
     "build": "nest build && ng build --output-hashing=all --prod=true",
     "api": "nest start --watch",
-    "go": "ng build --output-hashing=all && nest start",
+    "go": "ng build --outputs-hashing=all && nest start",
     "front": "ng serve --proxy-config proxy.conf.json",
     "api:debug": "nest start --debug --watch",
     "start": "node dist/server/main.js",
