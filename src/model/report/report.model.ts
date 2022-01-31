@@ -12,6 +12,10 @@ export class Report {
     to: Date | string = ''
     tasks: Task[] = [];
 
+    constructor(value: Object = {}) {
+        Object.assign(this, value);
+    }
+
     prepareDates(): void {
         this.date = new Date().toLocaleDateString();
         this.from = (<Date>this.from).toLocaleDateString();

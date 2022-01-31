@@ -1,4 +1,4 @@
-import {Controller, Get, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
+import {Controller, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
 import {ReportService} from "./report.service";
 import {FileInterceptor} from "@nestjs/platform-express";
 
@@ -8,16 +8,9 @@ export class ReportController {
     constructor(private reportService: ReportService) {
     }
 
-
     @Post()
     @UseInterceptors(FileInterceptor('excel'))
     async uploadFile(@UploadedFile() excel: Express.Multer.File) {
         return await this.reportService.generateReport(excel);
     }
-
-    @Get()
-    test() {
-        return 'test';
-    }
-
 }

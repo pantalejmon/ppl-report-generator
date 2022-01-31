@@ -1,6 +1,6 @@
 import {Injectable} from '@nestjs/common';
+import {DATE, HOURS, KEY, NAME, Report, SUMMARY, Task} from 'src/model/report/report.model';
 import {read, utils, WorkBook, WorkSheet} from 'xlsx'
-import {DATE, HOURS, KEY, NAME, Report, SUMMARY, Task} from "./report.model";
 
 @Injectable()
 export class ReportService {
@@ -8,13 +8,10 @@ export class ReportService {
     async generateReport(excel: Express.Multer.File) {
         const reportData: Report = this.excelToReportModel(excel);
         reportData.prepareDates();
+
         return reportData;
     }
 
-    prepareName(fullname: string) {
-        const nameArray: string[] = fullname.split(', ')
-        return `${nameArray[1]} ${nameArray[0]};`
-    }
 
     private excelToReportModel(excel: Express.Multer.File): Report {
         const reportWorkbook: WorkBook = read(excel.buffer, {type: "buffer", cellDates: true, dateNF: 'dd.mm.yyyy'})
@@ -28,7 +25,7 @@ export class ReportService {
     }
 
     private parseRowToReport(row: any, report: Report) {
-        let task: Task = report.tasks
+        const task: Task = report.tasks
             .find(task => task.key == row[KEY]);
 
         const date = row[DATE];
@@ -55,5 +52,10 @@ export class ReportService {
                 hours: row[HOURS]
             })
         }
+    }
+
+    private prepareName(fullname: string) {
+        const nameArray: string[] = fullname.split(', ')
+        return `${nameArray[1]} ${nameArray[0]}`;
     }
 }

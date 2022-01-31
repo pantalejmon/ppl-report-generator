@@ -9,12 +9,13 @@ export const API = process.env.API_URL || `api`;
 @Module({
     imports: [
         ServeStaticModule.forRoot({
-            rootPath: join(__dirname, `web`),
+            rootPath: join(__dirname, '..', `web`),
             exclude: [`/${API}*`],
         }),
     ],
     controllers: [ReportController],
     providers: [ReportService],
 })
+
 export class AppModule {
 }
