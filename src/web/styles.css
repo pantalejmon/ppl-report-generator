@@ -1,16 +1,15 @@
 body {
   padding: 0 !important;
   margin: 0 !important;
-  height: 100vh;
+  height: calc(100vh - calc(100vh - 100%));
   font-family: Helvetica, sans-serif;
-
 }
 
 .page {
   width: 21cm;
   min-height: 29.7cm;
   padding: 2cm;
-  margin: 1cm auto;
+  margin: 2.5cm auto 2.5cm auto;
   border: 1px #D3D3D3 solid;
   border-radius: 5px;
   background: white;
@@ -34,6 +33,7 @@ body {
 
   .no-print {
     display: none;
+    overflow: hidden;
   }
 
   .page {

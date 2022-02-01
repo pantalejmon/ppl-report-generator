@@ -1,25 +1,39 @@
 <div class="no-print">
-  <p-toolbar class="w-screen">
-    <p-fileUpload (onUpload)="onUpload($event)" [auto]="true"
-                  accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
-                  chooseIcon="pi pi-file-excel"
-                  chooseLabel="Wgraj" class="ml-3" mode="basic"
-                  name="excel" url="api/report">
-    </p-fileUpload>
-    <input *ngIf="report" [(ngModel)]="contract" pInputText placeholder="Numer umowy">
-    <button (click)="print()" *ngIf="report" icon="pi pi-print" label="Wydruk" pButton></button>
-  </p-toolbar>
+  <div class="w-full fixed top-0">
+    <div class="w-full p-toolbar flex align-items-center">
+      <div class=" flex flex-1 align-items-center">
+        <p-fileUpload (onUpload)="onUpload($event)" [auto]="true"
+                      accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                      chooseIcon="pi pi-file-excel"
+                      chooseLabel="Wgraj" class="ml-3" mode="basic"
+                      name="excel" url="api/report">
+        </p-fileUpload>
+      </div>
+
+      <div class="flex align-items-center flex-1">
+        <input (ngModelChange)="saveContractToStorage($event)" *ngIf="report" [(ngModel)]="contract" pInputText
+               placeholder="Numer umowy">
+      </div>
+
+      <div *ngIf="report" class="  flex align-items-center flex-1">
+        <input (change)="uploadSign($event)" accept="image/png, image/jpeg" id="sign" type="file"/>
+      </div>
+
+      <div class=" flex align-items-center flex-1 justify-content-end">
+        <button (click)="print()" *ngIf="report" icon="pi pi-print" label="Wydruk" pButton></button>
+      </div>
+    </div>
+  </div>
 </div>
 
 <div *ngIf="report" class="page">
-
   <p class="h5 text-center p-text-bold"> Oświadczenie o miesięcznej liczbie godzin świadczenia usług </p>
   <p class="h5 text-center p-text-bold">oraz ich rodzaju</p>
   <p class="h5 text-center p-text-bold"> w ramach umowy o świadczenie usług </p>
 
   <p class="h5 p-text-justify my-2 ">
     Ja, niżej podpisany/podpisana {{report.name}}, oświadczam, iż w okresie
-    {{report.from}}-{{report.to}} świadczyłem/świadczyłam usługi w ramach
+    {{report.period}} świadczyłem/świadczyłam usługi w ramach
     Umowy nr {{contract}} o Świadczenie Usług, w
     następującym wymiarze:
   </p>
@@ -32,45 +46,44 @@
     </thead>
     <tbody>
     <tr *ngFor="let task of report.tasks;  let i = index">
-      <td class="p-text-right">{{i + 1}}</td>
-      <td class="p-text-left"><span class="p-text-bold">{{task.key}}</span> {{task.summary}}</td>
-      <td class="p-text-center">{{task.hours}}</td>
+      <td class="text-right">{{i + 1}}</td>
+      <td class="text-left"><span class="p-text-bold">{{task.key}}</span> {{task.summary}}</td>
+      <td class="text-center">{{task.hours}}</td>
     </tr>
     </tbody>
   </table>
 
-
-  <div class="p-grid mt-5">
-    <div class="p-col-4 p-offset-7 p-text">
+  <div class="grid mt-5">
+    <div class="col-4 col-offset-8 text-center">
       Suma: {{report.sumHours()}}
     </div>
-    <div class="p-col-4 p-offset-8 p-text-bold text-center">
+    <div class="col-4 col-offset-8 p-text-bold text-center">
       Zleceniobiorca
     </div>
-
-    <div class="p-col-4 p-offset-8 border-top mt-5 text-center">
+    <div class="col-4 col-offset-8 border-top mt-5 text-center">
       Pan/Pani {{report.name}}
     </div>
-
-    <div class="p-col-4 p-offset-8 text-center">
+    <div class="col-4 col-offset-8 text-center">
       data: {{report.date}}
     </div>
-
+    <div class="col-4 col-offset-8 text-center">
+      <img #signImg src="" width="250"/>
+    </div>
 
   </div>
 </div>
 
 <div class="no-print">
-  <div class="w-screen absolute bottom-0">
-    <div class="w-screen p-toolbar flex flex-wrap align-items-center">
-      <div class="flex align-items-center justify-content-start w-10rem">
-        Autor: JJ
+  <div class="w-full fixed bottom-0">
+    <div class="w-full p-toolbar flex align-items-center">
+      <div class="flex align-items-center justify-content-start w-3rem">
+        TIIWP
       </div>
       <div class="flex-grow-1 flex align-items-center justify-content-center">
         Wersja: {{versionService.version}}
       </div>
 
-      <div class="flex align-items-center justify-content-end w-10rem">
+      <div class="flex align-items-center justify-content-end w-3rem">
         <a href="https://github.com/pantalejmon/ppl-report-generator"> <i class="pi pi-github text-2xl"></i></a>
       </div>
     </div>

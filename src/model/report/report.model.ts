@@ -8,8 +8,7 @@ export const NAME = 'Full name';
 export class Report {
     name: string = '';
     date: string = ''
-    from: Date | string = ''
-    to: Date | string = ''
+    period: string;
     tasks: Task[] = [];
 
     constructor(value: Object = {}) {
@@ -18,8 +17,6 @@ export class Report {
 
     prepareDates(): void {
         this.date = new Date().toLocaleDateString();
-        this.from = (<Date>this.from).toLocaleDateString();
-        this.to = (<Date>this.to).toLocaleDateString();
     }
 
     sumHours(): number {
@@ -34,3 +31,18 @@ export type Task = {
     summary: string;
     hours: number;
 }
+
+export const MONTHS = [
+    'Stycznia',
+    'Lutego',
+    'Marca',
+    'Kwietnia',
+    'Maja',
+    'Czerwca',
+    'Lipca',
+    'Sierpnia',
+    'Września',
+    'Października',
+    'Listopada',
+    'Grudnia'
+]

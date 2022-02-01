@@ -1,5 +1,5 @@
 import {Injectable} from '@nestjs/common';
-import {DATE, HOURS, KEY, NAME, Report, SUMMARY, Task} from 'src/model/report/report.model';
+import {DATE, HOURS, KEY, MONTHS, NAME, Report, SUMMARY, Task} from 'src/model/report/report.model';
 import {read, utils, WorkBook, WorkSheet} from 'xlsx'
 
 @Injectable()
@@ -30,13 +30,8 @@ export class ReportService {
 
         const date = row[DATE];
 
-        if (!report.from || report.from > date) {
-            report.from = date;
-        }
-
-
-        if (!report.to || report.to < date) {
-            report.to = date;
+        if (!report.period) {
+            report.period = `${MONTHS[date.getMonth()]} ${date.getFullYear()}`
         }
 
         if (!report.name) {
