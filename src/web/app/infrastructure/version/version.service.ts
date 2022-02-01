@@ -7,6 +7,8 @@ import {Version} from "../../../../model/version/version.model";
 })
 export class VersionService {
 
+  private _version: string
+
   constructor(private httpClient: HttpClient) {
     this.httpClient.get('/api/version')
       .subscribe({
@@ -14,10 +16,7 @@ export class VersionService {
       })
   }
 
-  private _version: string
-
   get version(): string {
     return this._version;
   }
-
 }
