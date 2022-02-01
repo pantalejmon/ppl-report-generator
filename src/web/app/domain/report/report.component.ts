@@ -54,4 +54,8 @@ export class ReportComponent implements OnInit {
   saveContractToStorage(contract: string) {
     localStorage.setItem(this.CONTRACT_KEY, contract)
   }
+
+  checkImageToDisplay() {
+    return !!localStorage.getItem(this.IMG_DATA_KEY) ? 'block' : 'hidden';
+  }
 }
