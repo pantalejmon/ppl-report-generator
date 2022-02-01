@@ -17,7 +17,7 @@ export class Report {
 
     prepareDate(): void {
         const currentDate = new Date();
-        const day = `${currentDate.getDay()}`.padStart(2, '0')
+        const day = `${currentDate.getDate()}`.padStart(2, '0')
         const month = `${currentDate.getMonth() + 1}`.padStart(2, '0')
 
         this.date = `${day}.${month}.${currentDate.getFullYear()}`;

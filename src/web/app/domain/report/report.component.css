@@ -12,3 +12,7 @@ table {
 .w-60-px {
   width: 60px;
 }
+
+input[type="file"] {
+  display: none;
+}

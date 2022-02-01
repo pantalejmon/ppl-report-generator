@@ -1,6 +1,6 @@
 <div class="no-print">
   <div class="w-full fixed top-0">
-    <div class="w-full p-toolbar flex align-items-center">
+    <div class="w-full p-toolbar flex align-items-center flex-wrap">
       <div class=" flex flex-1 align-items-center">
         <p-fileUpload (onUpload)="onUpload($event)" [auto]="true"
                       accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
@@ -10,13 +10,26 @@
         </p-fileUpload>
       </div>
 
-      <div class="flex align-items-center flex-1">
-        <input (ngModelChange)="saveContractToStorage($event)" *ngIf="report" [(ngModel)]="contract" pInputText
-               placeholder="Numer umowy">
+      <div class="flex align-items-center justify-content-center flex-1">
+        <p-overlayPanel #op>
+          <ng-template pTemplate>
+            <input (ngModelChange)="saveContractToStorage($event)" [(ngModel)]="contract" class="m-3"
+                   pInputText placeholder="Numer umowy">
+          </ng-template>
+        </p-overlayPanel>
+        <label (click)="op.toggle($event)" *ngIf="report" class="p-button" pRipple>
+          <span class="block"> <i class="pi pi-file"></i></span>
+          <span class="hidden md:block ml-2">Umowa</span>
+        </label>
+
       </div>
 
-      <div *ngIf="report" class="  flex align-items-center flex-1">
-        <input (change)="uploadSign($event)" accept="image/png, image/jpeg" id="sign" type="file"/>
+      <div class="flex align-items-center justify-content-center flex-1">
+        <label *ngIf="report" class="p-button" pRipple>
+          <input (change)="uploadSign($event)" accept="image/png, image/jpeg" id="sign" type="file"/>
+          <span class="block"> <i class="pi pi-pencil"></i></span>
+          <span class="hidden md:block ml-2">Podpis</span>
+        </label>
       </div>
 
       <div class=" flex align-items-center flex-1 justify-content-end">
@@ -74,8 +87,8 @@
 </div>
 
 <div class="no-print">
-  <div class="w-full fixed bottom-0">
-    <div class="w-full p-toolbar flex align-items-center">
+  <div class="w-screen fixed bottom-0 left-0 right-0">
+    <div class="w-screen p-toolbar flex align-items-center">
       <div class="flex align-items-center justify-content-start w-3rem">
         TIIWP
       </div>

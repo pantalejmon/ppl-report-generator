@@ -48,7 +48,7 @@ export class ReportComponent implements OnInit {
   }
 
   loadImageFromStorage() {
-    this.img.nativeElement.src = localStorage.getItem(this.IMG_DATA_KEY);
+    this.img.nativeElement.src = localStorage.getItem(this.IMG_DATA_KEY) ?? '';
   }
 
   saveContractToStorage(contract: string) {

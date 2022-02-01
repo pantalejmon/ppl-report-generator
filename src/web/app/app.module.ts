@@ -14,6 +14,8 @@ import {FormsModule} from "@angular/forms";
 import {ToolbarModule} from "primeng/toolbar";
 import {GenderPipe} from './domain/report/util/gender.pipe';
 import {GenderSignPipe} from './domain/report/util/gender-sign.pipe';
+import {OverlayPanelModule} from "primeng/overlaypanel";
+import {RippleModule} from "primeng/ripple";
 
 @NgModule({
   declarations: [
@@ -32,6 +34,8 @@ import {GenderSignPipe} from './domain/report/util/gender-sign.pipe';
     InputTextModule,
     FormsModule,
     ToolbarModule,
+    OverlayPanelModule,
+    RippleModule,
   ],
   providers: [
     MessageService
