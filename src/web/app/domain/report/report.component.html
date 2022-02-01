@@ -27,12 +27,12 @@
 </div>
 
 <div *ngIf="report" class="page">
-  <p class="h5 text-center p-text-bold"> Oświadczenie o miesięcznej liczbie godzin świadczenia usług </p>
-  <p class="h5 text-center p-text-bold">oraz ich rodzaju</p>
-  <p class="h5 text-center p-text-bold"> w ramach umowy o świadczenie usług </p>
+  <p class="h5 text-center font-semibold"> Oświadczenie o miesięcznej liczbie godzin świadczenia usług </p>
+  <p class="h5 text-center font-semibold">oraz ich rodzaju</p>
+  <p class="h5 text-center font-semibold"> w ramach umowy o świadczenie usług </p>
 
-  <p class="h5 p-text-justify my-2 ">
-    Ja, niżej podpisany/podpisana {{report.name}}, oświadczam, iż w okresie
+  <p class="h5 text-justify my-2 ">
+    Ja, niżej {{report.name | genderSign}} {{report.name}}, oświadczam, iż w okresie
     {{report.period}} świadczyłem/świadczyłam usługi w ramach
     Umowy nr {{contract}} o Świadczenie Usług, w
     następującym wymiarze:
@@ -47,7 +47,7 @@
     <tbody>
     <tr *ngFor="let task of report.tasks;  let i = index">
       <td class="text-right">{{i + 1}}</td>
-      <td class="text-left"><span class="p-text-bold">{{task.key}}</span> {{task.summary}}</td>
+      <td class="text-left"><span class="font-semibold">{{task.key}}</span> {{task.summary}}</td>
       <td class="text-center">{{task.hours}}</td>
     </tr>
     </tbody>
@@ -57,11 +57,11 @@
     <div class="col-4 col-offset-8 text-center">
       Suma: {{report.sumHours()}}
     </div>
-    <div class="col-4 col-offset-8 p-text-bold text-center">
+    <div class="col-4 col-offset-8 font-semibold text-center">
       Zleceniobiorca
     </div>
-    <div class="col-4 col-offset-8 border-top mt-5 text-center">
-      Pan/Pani {{report.name}}
+    <div class="col-4 col-offset-8 border-top mt-2 text-center">
+      {{report.name | gender}} {{report.name}}
     </div>
     <div class="col-4 col-offset-8 text-center">
       data: {{report.date}}

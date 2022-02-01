@@ -12,12 +12,15 @@ import {ToastModule} from "primeng/toast";
 import {InputTextModule} from "primeng/inputtext";
 import {FormsModule} from "@angular/forms";
 import {ToolbarModule} from "primeng/toolbar";
+import {GenderPipe} from './domain/report/util/gender.pipe';
+import {GenderSignPipe} from './domain/report/util/gender-sign.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     ReportComponent,
-
+    GenderPipe,
+    GenderSignPipe,
   ],
   imports: [
     BrowserModule,
