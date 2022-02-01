@@ -7,11 +7,10 @@ export class ReportService {
 
     async generateReport(excel: Express.Multer.File) {
         const reportData: Report = this.excelToReportModel(excel);
-        reportData.prepareDates();
+        reportData.prepareDate();
 
         return reportData;
     }
-
 
     private excelToReportModel(excel: Express.Multer.File): Report {
         const reportWorkbook: WorkBook = read(excel.buffer, {type: "buffer", cellDates: true, dateNF: 'dd.mm.yyyy'})

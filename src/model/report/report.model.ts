@@ -15,8 +15,12 @@ export class Report {
         Object.assign(this, value);
     }
 
-    prepareDates(): void {
-        this.date = new Date().toLocaleDateString();
+    prepareDate(): void {
+        const currentDate = new Date();
+        const day = `${currentDate.getDay()}`.padStart(2, '0')
+        const month = `${currentDate.getMonth() + 1}`.padStart(2, '0')
+
+        this.date = `${day}.${month}.${currentDate.getFullYear()}`;
     }
 
     sumHours(): number {
