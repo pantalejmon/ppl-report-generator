@@ -15,7 +15,8 @@ export class ReportComponent implements OnInit {
   readonly CONTRACT_KEY = 'contract'
 
   report: Report;
-  contract: string;
+  contract: string = '';
+  displayContractForm: boolean = false;
 
   constructor(public versionService: VersionService) {
   }
@@ -57,5 +58,13 @@ export class ReportComponent implements OnInit {
 
   checkImageToDisplay() {
     return !!localStorage.getItem(this.IMG_DATA_KEY) ? 'block' : 'hidden';
+  }
+
+  hideContractForm() {
+    this.displayContractForm = false;
+  }
+
+  showContractForm() {
+    this.displayContractForm = true;
   }
 }

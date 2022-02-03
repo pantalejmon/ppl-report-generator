@@ -16,6 +16,8 @@ import {GenderPipe} from './domain/report/util/gender.pipe';
 import {GenderSignPipe} from './domain/report/util/gender-sign.pipe';
 import {OverlayPanelModule} from "primeng/overlaypanel";
 import {RippleModule} from "primeng/ripple";
+import {GenderProvidePipe} from './domain/report/util/gender-provide.pipe';
+import {SidebarModule} from "primeng/sidebar";
 
 @NgModule({
   declarations: [
@@ -23,6 +25,7 @@ import {RippleModule} from "primeng/ripple";
     ReportComponent,
     GenderPipe,
     GenderSignPipe,
+    GenderProvidePipe,
   ],
   imports: [
     BrowserModule,
@@ -36,6 +39,7 @@ import {RippleModule} from "primeng/ripple";
     ToolbarModule,
     OverlayPanelModule,
     RippleModule,
+    SidebarModule,
   ],
   providers: [
     MessageService

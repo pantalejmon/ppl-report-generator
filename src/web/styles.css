@@ -65,5 +65,11 @@ body {
   tfoot {
     display: table-footer-group;
   }
+}
 
+@media only screen and (max-width: 768px) {
+  .p-button.p-button-icon-only {
+    padding: 0.5rem 1rem !important;
+    width: auto;
+  }
 }

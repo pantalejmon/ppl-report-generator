@@ -7,7 +7,6 @@ import {PrimeNGConfig} from "primeng/api";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  menuActive = false;
 
   constructor(private primengConfig: PrimeNGConfig) {
     this.primengConfig.ripple = true;

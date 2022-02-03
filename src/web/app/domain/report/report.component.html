@@ -1,23 +1,23 @@
 <div class="no-print">
   <div class="w-full fixed top-0">
     <div class="w-full p-toolbar flex align-items-center flex-wrap">
-      <div class=" flex flex-1 align-items-center">
+      <div class=" flex flex-1 align-items-center justify-content-center">
         <p-fileUpload (onUpload)="onUpload($event)" [auto]="true"
                       accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
                       chooseIcon="pi pi-file-excel"
-                      chooseLabel="Wgraj" class="ml-3" mode="basic"
-                      name="excel" url="api/report">
+                      chooseLabel="Wgraj" mode="basic"
+                      name="excel" styleClass="hidden md:block" url="api/report">
+        </p-fileUpload>
+        <p-fileUpload (onUpload)="onUpload($event)" [auto]="true"
+                      accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                      chooseIcon="pi pi-file-excel"
+                      mode="basic"
+                      name="excel" styleClass="block md:hidden p-button" url="api/report">
         </p-fileUpload>
       </div>
 
       <div class="flex align-items-center justify-content-center flex-1">
-        <p-overlayPanel #op>
-          <ng-template pTemplate>
-            <input (ngModelChange)="saveContractToStorage($event)" [(ngModel)]="contract" class="m-3"
-                   pInputText placeholder="Numer umowy">
-          </ng-template>
-        </p-overlayPanel>
-        <label (click)="op.toggle($event)" *ngIf="report" class="p-button" pRipple>
+        <label (click)="showContractForm()" *ngIf="report" class="p-button" pRipple>
           <span class="block"> <i class="pi pi-file"></i></span>
           <span class="hidden md:block ml-2">Umowa</span>
         </label>
@@ -32,8 +32,11 @@
         </label>
       </div>
 
-      <div class=" flex align-items-center flex-1 justify-content-end">
-        <button (click)="print()" *ngIf="report" icon="pi pi-print" label="Wydruk" pButton></button>
+      <div class=" flex align-items-center flex-1 justify-content-center">
+        <label (click)="print()" *ngIf="report" class="p-button" pRipple>
+          <span class="block"> <i class="pi pi-print"></i></span>
+          <span class="hidden md:block ml-2">Wydruk</span>
+        </label>
       </div>
     </div>
   </div>
@@ -46,7 +49,7 @@
 
   <p class="h5 text-justify my-2 ">
     Ja, niżej {{report.name | genderSign}} {{report.name}}, oświadczam, iż w okresie
-    {{report.period}} świadczyłem/świadczyłam usługi w ramach
+    {{report.period}} {{report.name | genderProvide}} usługi w ramach
     Umowy nr {{contract}} o Świadczenie Usług, w
     następującym wymiarze:
   </p>
@@ -97,8 +100,22 @@
       </div>
 
       <div class="flex align-items-center justify-content-end w-3rem">
-        <a href="https://github.com/pantalejmon/ppl-report-generator"> <i class="pi pi-github text-2xl"></i></a>
+        <a href="https://github.com/pantalejmon/ppl-report-generator"> <i class="pi pi-github text-2xl mr-2"></i></a>
       </div>
     </div>
   </div>
 </div>
+
+<p-sidebar #NavSideBar (onHide)="NavSideBar.destroyModal()" [(visible)]="displayContractForm" appendTo="body"
+           dismissible=true
+           position="bottom" styleClass="p-sidebar-md">
+  <div class=" grid">
+    <div class="col-12 md:col-4 md:col-offset-4">
+      <div class="p-inputgroup">
+        <input (ngModelChange)="saveContractToStorage($event)" [(ngModel)]="contract" pInputText
+               placeholder="Numer umowy" type="text">
+        <button (click)="hideContractForm()" icon="pi pi-save" pButton pRipple type="button"></button>
+      </div>
+    </div>
+  </div>
+</p-sidebar>
