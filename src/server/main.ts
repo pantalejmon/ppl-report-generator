@@ -2,9 +2,9 @@ import {NestFactory} from '@nestjs/core';
 import {API, AppModule} from './app.module';
 import * as bodyParser from 'body-parser';
 import {ValidationPipe} from '@nestjs/common';
-import {DocumentBuilder, SwaggerModule} from "@nestjs/swagger";
-import * as version from "project-version"
-import * as actuator from "express-actuator";
+import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
+import * as version from 'project-version'
+import * as actuator from 'express-actuator';
 
 async function bootstrap(): Promise<void> {
 
