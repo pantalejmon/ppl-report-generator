@@ -12,10 +12,7 @@ export class ActuatorService {
   constructor(private httpClient: HttpClient) {
     this.httpClient.get('/info')
       .subscribe({
-        next: (info: Info) => {
-          console.log()
-          return this._version = info.build.version;
-        }
+        next: (info: Info) => this._version = info.build.version
       })
   }
 
