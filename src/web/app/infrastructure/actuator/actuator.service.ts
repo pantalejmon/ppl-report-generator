@@ -1,18 +1,18 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
-import {Version} from "../../../../model/version/version.model";
+import {Info} from "./actuator.model";
 
 @Injectable({
   providedIn: 'root'
 })
-export class VersionService {
+export class ActuatorService {
 
   private _version: string
 
   constructor(private httpClient: HttpClient) {
-    this.httpClient.get('/api/version')
+    this.httpClient.get('/info')
       .subscribe({
-        next: (versionWrapper: Version) => this._version = versionWrapper.version
+        next: (info: Info) => this._version = info.build.version
       })
   }
 
