@@ -14,9 +14,6 @@ jobs:
 
     runs-on: ubuntu-latest
 
-    env:
-      PPL_SLACK_NOTIFICATION: ${{secrets.PPL_SLACK_NOTIFICATION}}
-
     strategy:
       matrix:
         node-version: [ 12.x, 14.x, 16.x ]
@@ -37,8 +34,7 @@ jobs:
 #        run: |
 #            curl -X POST -H 'Content-type: application/json' --data '{"text":"Nowa wersja aplikacji do generowania raportów PPL jest dostępna. Możesz ją sprawdzić pod adresem: ${{ secrets.PPL_HEROKU_URL }}"}' $PPL_SLACK_NOTIFICATION
 
-      - run: echo $PPL_SLACK_NOTIFICATION
-      - run: echo "Another test ${{secrets.PPL_SLACK_NOTIFICATION}}"
+      - run: echo "Test ${{secrets.PPL_SLACK_NOTIFICATION}}"
 
   if_merged:
     if: github.event.pull_request.merged == true
