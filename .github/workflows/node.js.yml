@@ -28,3 +28,11 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: npm run build --if-present
+
+
+  if_merged:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Nowa wersja aplikacji do generowania raportów PPL jest dostępna. Możesz ją sprawdzić pod adresem: ${{ secrets.PPL_HEROKU_URL }}"}' ${{ secrets.PPL_SLACK_NOTIFICATION }}
