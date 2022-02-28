@@ -5,7 +5,7 @@
   <a href="https://github.com/pantalejmon/ppl-report-generator/network/members"><img src="https://img.shields.io/github/forks/pantalejmon/ppl-report-generator" alt="Forks Badge"/></a>
   <a href="https://github.com/pantalejmon/ppl-report-generator/pulls"><img src="https://img.shields.io/github/issues-pr/pantalejmon/ppl-report-generator" alt="Pull Requests Badge"/></a>
   <a href="https://github.com/pantalejmon/ppl-report-generator/issues"><img src="https://img.shields.io/github/issues/pantalejmon/ppl-report-generator" alt="Issues Badge"/></a>
-  <a href="https://github.com/abhisheknaiidu/awesome-github-profile-readme/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/pantalejmon/ppl-report-generator?color=2b9348"></a>
+  <a href="https://github.com/pantalejmon/ppl-report-generator/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/pantalejmon/ppl-report-generator?color=2b9348"></a>
   <a href="https://github.com/pantalejmon/ppl-report-generator/blob/master/LICENSE"><img src="https://img.shields.io/github/license/pantalejmon/ppl-report-generator?color=2b9348" alt="License Badge"/></a>
   
 </p>
