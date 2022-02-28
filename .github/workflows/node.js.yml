@@ -29,7 +29,6 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
 
-
   if_merged:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-latest
