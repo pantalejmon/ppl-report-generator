@@ -65,6 +65,12 @@ body {
   tfoot {
     display: table-footer-group;
   }
+
+  .sign {
+    display: inline-block;
+    width: 100%;
+    page-break-inside: avoid;
+  }
 }
 
 @media only screen and (max-width: 768px) {
