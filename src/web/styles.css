@@ -14,11 +14,11 @@ body {
   border-radius: 5px;
   background: white;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  position: relative;
 }
 
 @page {
   size: A4;
-  margin: 0;
 }
 
 @media print {
@@ -29,6 +29,7 @@ body {
     padding-top: 2.5cm;
     padding-bottom: 2.5cm;
     height: auto;
+    position: relative;
   }
 
   .no-print {
@@ -71,6 +72,16 @@ body {
     width: 100%;
     page-break-inside: avoid;
   }
+}
+
+.sign {
+  position: relative;
+}
+
+.sign-img {
+  page-break-inside: avoid;
+  position: absolute;
+  top: 45px;
 }
 
 @media only screen and (max-width: 768px) {
