@@ -36,6 +36,7 @@ jobs:
       - env:
           PPL_SLACK_NOTIFICATION: ${{secrets.PPL_SLACK_NOTIFICATION}}
         run: echo $PPL_SLACK_NOTIFICATION
+      - run: echo "Another test ${{secrets.PPL_SLACK_NOTIFICATION}}"
 
   if_merged:
     if: github.event.pull_request.merged == true
