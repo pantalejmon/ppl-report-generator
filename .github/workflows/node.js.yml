@@ -20,19 +20,22 @@ jobs:
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
-      - uses: actions/checkout@v2
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
-        with:
-          node-version: ${{ matrix.node-version }}
-          cache: 'npm'
-      - run: npm ci
-      - run: npm run build --if-present
-      - shell: bash
-        env:
-          PPL_SLACK_NOTIFICATION: ${{ secrets.PPL_SLACK_NOTIFICATION }}
-        run: |
-            curl -X POST -H 'Content-type: application/json' --data '{"text":"Nowa wersja aplikacji do generowania raportów PPL jest dostępna. Możesz ją sprawdzić pod adresem: ${{ secrets.PPL_HEROKU_URL }}"}' $PPL_SLACK_NOTIFICATION
+#      - uses: actions/checkout@v2
+#      - name: Use Node.js ${{ matrix.node-version }}
+#        uses: actions/setup-node@v2
+#        with:
+#          node-version: ${{ matrix.node-version }}
+#          cache: 'npm'
+#      - run: npm ci
+#      - run: npm run build --if-present
+#      - shell: bash
+#        env:
+#          PPL_SLACK_NOTIFICATION: ${{secrets.PPL_SLACK_NOTIFICATION}}
+#        run: |
+#            curl -X POST -H 'Content-type: application/json' --data '{"text":"Nowa wersja aplikacji do generowania raportów PPL jest dostępna. Możesz ją sprawdzić pod adresem: ${{ secrets.PPL_HEROKU_URL }}"}' $PPL_SLACK_NOTIFICATION
+      - env:
+          PPL_SLACK_NOTIFICATION: ${{secrets.PPL_SLACK_NOTIFICATION}}
+        run: echo $PPL_SLACK_NOTIFICATION
 
   if_merged:
     if: github.event.pull_request.merged == true
