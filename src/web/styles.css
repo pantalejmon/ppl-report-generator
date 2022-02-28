@@ -79,7 +79,6 @@ body {
 }
 
 .sign-img {
-  page-break-inside: avoid;
   position: absolute;
   top: 45px;
 }
