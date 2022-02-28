@@ -1,12 +1,23 @@
-<a href="https://github.com/pantalejmon/ppl-report-generator/stargazers"><img src="https://img.shields.io/github/stars/pantalejmon/ppl-report-generator" alt="Stars Badge"/></a>
-<a href="https://github.com/pantalejmon/ppl-report-generator/network/members"><img src="https://img.shields.io/github/forks/pantalejmon/ppl-report-generator" alt="Forks Badge"/></a>
-<a href="https://github.com/pantalejmon/ppl-report-generator/pulls"><img src="https://img.shields.io/github/issues-pr/pantalejmon/ppl-report-generator" alt="Pull Requests Badge"/></a>
-<a href="https://github.com/pantalejmon/ppl-report-generator/issues"><img src="https://img.shields.io/github/issues/pantalejmon/ppl-report-generator" alt="Issues Badge"/></a>
-<a href="https://github.com/abhisheknaiidu/awesome-github-profile-readme/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/pantalejmon/ppl-report-generator?color=2b9348"></a>
-<a href="https://github.com/pantalejmon/ppl-report-generator/blob/master/LICENSE"><img src="https://img.shields.io/github/license/pantalejmon/ppl-report-generator?color=2b9348" alt="License Badge"/></a>
+<p align="center">
+  <a href="https://github.com/pantalejmon/ppl-report-generator/actions/workflows/node.js.yml"><img src="https://github.com/pantalejmon/ppl-report-generator/actions/workflows/node.js.yml/badge.svg" alt="Stars Badge"/></a>
+  <span><img src="https://img.shields.io/static/v1?label=PPL syntax&message=passing&color=green" alt="Issues Badge"/></span>
+  <a href="https://github.com/pantalejmon/ppl-report-generator/stargazers"><img src="https://img.shields.io/github/stars/pantalejmon/ppl-report-generator" alt="Stars Badge"/></a>
+  <a href="https://github.com/pantalejmon/ppl-report-generator/network/members"><img src="https://img.shields.io/github/forks/pantalejmon/ppl-report-generator" alt="Forks Badge"/></a>
+  <a href="https://github.com/pantalejmon/ppl-report-generator/pulls"><img src="https://img.shields.io/github/issues-pr/pantalejmon/ppl-report-generator" alt="Pull Requests Badge"/></a>
+  <a href="https://github.com/pantalejmon/ppl-report-generator/issues"><img src="https://img.shields.io/github/issues/pantalejmon/ppl-report-generator" alt="Issues Badge"/></a>
+  <a href="https://github.com/abhisheknaiidu/awesome-github-profile-readme/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/pantalejmon/ppl-report-generator?color=2b9348"></a>
+  <a href="https://github.com/pantalejmon/ppl-report-generator/blob/master/LICENSE"><img src="https://img.shields.io/github/license/pantalejmon/ppl-report-generator?color=2b9348" alt="License Badge"/></a>
+  
+</p>
 
+<p align="center">
+  <img src="https://img.shields.io/badge/nestjs-%23E0234E.svg?style=for-the-badge&logo=nestjs&logoColor=white" alt="Nest"/>
+  <img src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white" alt="Angular"/>
+  <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript"/>
+  <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node"/>
+  <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" alt="Heroku"/>
+</p>
 
-[![Build Actions Status](https://github.com/pantalejmon/ppl-report-generator/actions/workflows/node.js/badge.svg)](https://github.com/pantalejmon/ppl-report-generator/actions)
 
 # PPL generator raportów B2B
 
@@ -22,4 +33,9 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 6. W opcjach wydruku wybierz **Wydruk do PDF**
 7. Ciesz się stworzonym raportem
 
+### Co nowego
+
+#### 0.1.8
+
+- Poprawa wyświetlania i dzielenia stron
 
