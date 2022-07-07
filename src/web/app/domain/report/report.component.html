@@ -82,8 +82,8 @@
     <div class="col-4 col-offset-8 text-center">
       data: {{report.date}}
     </div>
-    <div class="col-4 col-offset-8 text-center sign-img">
-      <img #signImg class="{{checkImageToDisplay()}}" src="" width="250"/>
+    <div class="col-4 col-offset-8 text-center sign-img" [style.top]="imgSignTop+'px'" [style.left]="imgSignLeft+'px'">
+      <img #signImg class="{{checkImageToDisplay()}}" src="" width="250" (dragstart)="imgDragStart($event)" (dragend)="imgDragEnd($event)" />
     </div>
 
   </div>

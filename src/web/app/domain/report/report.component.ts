@@ -11,18 +11,27 @@ export class ReportComponent implements OnInit {
 
   @ViewChild('signImg') img: ElementRef;
 
-  readonly IMG_DATA_KEY = 'imgData'
-  readonly CONTRACT_KEY = 'contract'
+  readonly IMG_DATA_KEY = 'imgData';
+  readonly IMG_LEFT_KEY = 'imgX';
+  readonly IMG_TOP_KEY = 'imgY';
+  readonly CONTRACT_KEY = 'contract';
 
   report: Report;
   contract: string = '';
   displayContractForm: boolean = false;
+
+  imgSignLeft: number = null;
+  imgSignTop: number = null;
+  imgDragStartX: number = null;
+  imgDragStartY: number = null;
 
   constructor(public actuatorService: ActuatorService) {
   }
 
   ngOnInit(): void {
     this.contract = localStorage.getItem(this.CONTRACT_KEY) ?? '';
+    this.imgSignLeft = Number(localStorage.getItem(this.IMG_LEFT_KEY) ?? '0');
+    this.imgSignTop = Number(localStorage.getItem(this.IMG_TOP_KEY) ?? '45');
   }
 
   onUpload(data) {
@@ -56,6 +65,11 @@ export class ReportComponent implements OnInit {
     localStorage.setItem(this.CONTRACT_KEY, contract)
   }
 
+  saveImgPositionToStorage() {
+    localStorage.setItem(this.IMG_LEFT_KEY, String(this.imgSignLeft));
+    localStorage.setItem(this.IMG_TOP_KEY, String(this.imgSignTop));
+  }
+
   checkImageToDisplay() {
     return !!localStorage.getItem(this.IMG_DATA_KEY) ? 'block' : 'hidden';
   }
@@ -66,5 +80,16 @@ export class ReportComponent implements OnInit {
 
   showContractForm() {
     this.displayContractForm = true;
+  }
+
+  imgDragStart($event: DragEvent) {
+    this.imgDragStartX = $event.clientX;
+    this.imgDragStartY = $event.clientY;
+  }
+
+  imgDragEnd($event: DragEvent) {
+    this.imgSignLeft += $event.clientX - this.imgDragStartX;
+    this.imgSignTop += $event.clientY - this.imgDragStartY;
+    this.saveImgPositionToStorage();
   }
 }
