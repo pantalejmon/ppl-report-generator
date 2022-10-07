@@ -28,7 +28,7 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 1. Zaloguj się do systemu JIRA i upewnij się że język ustawiony jest na angielski
 2. Wejdz w sekcje tempo, ustaw wybrany miesiąc i kliknij **...**
 3. Wybierz opcje eksport i format **XSLX**
-4. Wejdz do [aplikacji](https://ppl-report.herokuapp.com)
+4. Wejdz do [aplikacji](https://janjakubik.pl)
 5. Wgraj plik, dodaj dodatkowe dane(Cachują się w pamięci przeglądarki), obraz podpisu można przesuwać myszką, kliknij wydruk
 6. W opcjach wydruku wybierz **Wydruk do PDF**
 7. Ciesz się stworzonym raportem
@@ -38,4 +38,11 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 #### 0.1.9
 
 - Poprawa wyświetlania i dzielenia stron
+- Przesuwanie podpisu na dokumencie
+
+#### 0.1.10
+
+- Nowy adres [strony](https://janjakubik.pl)
+- Nowy system wdrażania (CI/CD)
+
 
