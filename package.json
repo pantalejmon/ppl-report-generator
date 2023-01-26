@@ -7,9 +7,9 @@
   "license": "MIT",
   "scripts": {
     "prebuild": "rimraf dist",
-    "build": "nest build && ng build --prod=true",
+    "build": "nest build && ng build --configuration production",
     "api": "nest start --watch",
-    "go": "ng build && nest start",
+    "go": "ng build --configuration production && nest start",
     "front": "ng serve --proxy-config proxy.conf.json",
     "api:debug": "nest start --debug --watch",
     "start": "node dist/server/main.js",

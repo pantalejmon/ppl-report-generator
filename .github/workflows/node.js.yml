@@ -18,7 +18,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [ 12.x, 14.x, 16.x ]
+        node-version: [ 14.x, 16.x, 18.x ]
         # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
@@ -31,6 +31,6 @@ jobs:
       - run: npm ci
       - run: npm run build --if-present
       - run: |
-            curl -X POST -H 'Content-type: application/json' --data '{"text":"Nowa wersja aplikacji do generowania raportów PPL jest dostępna. Możesz ją sprawdzić pod adresem: ${{ secrets.PPL_HEROKU_URL }}"}' ${{secrets.PPL_SLACK_NOTIFICATION}}
-      - run: | 
-            curl -X PATCH https://janjakubik.pl/git-reload --header "${{secrets.MAGIC_HEADER_NAME}}: ${{secrets.MAGIC_HEADER_VALUE}}"
+          curl -X POST -H 'Content-type: application/json' --data '{"text":"Nowa wersja aplikacji do generowania raportów PPL jest dostępna. Możesz ją sprawdzić pod adresem: ${{ secrets.PPL_HEROKU_URL }}"}' ${{secrets.PPL_SLACK_NOTIFICATION}}
+      - run: |
+          curl -X PATCH https://janjakubik.pl/git-reload --header "${{secrets.MAGIC_HEADER_NAME}}: ${{secrets.MAGIC_HEADER_VALUE}}"
