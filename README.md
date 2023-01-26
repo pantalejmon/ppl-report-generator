@@ -1,13 +1,15 @@
 <p align="center">
-  <a href="https://github.com/pantalejmon/ppl-report-generator/actions/workflows/node.js.yml"><img src="https://github.com/pantalejmon/ppl-report-generator/actions/workflows/node.js.yml/badge.svg" alt="Stars Badge"/></a>
-  <span><img src="https://img.shields.io/static/v1?label=PPL syntax&message=passing&color=green" alt="Issues Badge"/></span>
-  <a href="https://github.com/pantalejmon/ppl-report-generator/stargazers"><img src="https://img.shields.io/github/stars/pantalejmon/ppl-report-generator" alt="Stars Badge"/></a>
-  <a href="https://github.com/pantalejmon/ppl-report-generator/network/members"><img src="https://img.shields.io/github/forks/pantalejmon/ppl-report-generator" alt="Forks Badge"/></a>
-  <a href="https://github.com/pantalejmon/ppl-report-generator/pulls"><img src="https://img.shields.io/github/issues-pr/pantalejmon/ppl-report-generator" alt="Pull Requests Badge"/></a>
-  <a href="https://github.com/pantalejmon/ppl-report-generator/issues"><img src="https://img.shields.io/github/issues/pantalejmon/ppl-report-generator" alt="Issues Badge"/></a>
-  <a href="https://github.com/pantalejmon/ppl-report-generator/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/pantalejmon/ppl-report-generator?color=2b9348"></a>
-  <a href="https://github.com/pantalejmon/ppl-report-generator/blob/master/LICENSE"><img src="https://img.shields.io/github/license/pantalejmon/ppl-report-generator?color=2b9348" alt="License Badge"/></a>
-  
+  <a href="https://github.com/pantalejmon/ppl-report-generator/actions/workflows/build.yml"><img src="https://github.com/pantalejmon/ppl-report-generator/actions/workflows/build.yml/badge.svg" alt="Stars Badge"/></a>
+  <a href="https://github.com/pantalejmon/ppl-report-generator/actions/workflows/deploy.yml"><img src="https://github.com/pantalejmon/ppl-report-generator/actions/workflows/deploy.yml/badge.svg" alt="Stars Badge"/></a>
+
+<span><img src="https://img.shields.io/static/v1?label=PPL syntax&message=passing&color=green" alt="Issues Badge"/></span>
+<a href="https://github.com/pantalejmon/ppl-report-generator/stargazers"><img src="https://img.shields.io/github/stars/pantalejmon/ppl-report-generator" alt="Stars Badge"/></a>
+<a href="https://github.com/pantalejmon/ppl-report-generator/network/members"><img src="https://img.shields.io/github/forks/pantalejmon/ppl-report-generator" alt="Forks Badge"/></a>
+<a href="https://github.com/pantalejmon/ppl-report-generator/pulls"><img src="https://img.shields.io/github/issues-pr/pantalejmon/ppl-report-generator" alt="Pull Requests Badge"/></a>
+<a href="https://github.com/pantalejmon/ppl-report-generator/issues"><img src="https://img.shields.io/github/issues/pantalejmon/ppl-report-generator" alt="Issues Badge"/></a>
+<a href="https://github.com/pantalejmon/ppl-report-generator/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/pantalejmon/ppl-report-generator?color=2b9348"></a>
+<a href="https://github.com/pantalejmon/ppl-report-generator/blob/master/LICENSE"><img src="https://img.shields.io/github/license/pantalejmon/ppl-report-generator?color=2b9348" alt="License Badge"/></a>
+
 </p>
 
 <p align="center">
