@@ -13,6 +13,23 @@ table {
   width: 60px;
 }
 
+.w-100-px {
+  width: 100px;
+}
+
+.h-edit {
+  height: 1.75rem !important;
+  margin-right: 2px;
+}
+
+.mr-edit {
+  margin-right: 2px;
+}
+
+.ml-edit {
+  margin-left: 2px;
+}
+
 input[type="file"] {
   display: none;
 }

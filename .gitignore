@@ -41,3 +41,5 @@ yarn-error.log
 testem.log
 /typings
 /.angular
+/.fleet/
+/.env

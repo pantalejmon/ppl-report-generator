@@ -1,5 +1,5 @@
 <div class="no-print">
-  <div class="w-full fixed top-0">
+  <div class="w-full fixed top-0 z-2">
     <div class="w-full p-toolbar flex align-items-center flex-wrap">
       <div class=" flex flex-1 align-items-center justify-content-center">
         <p-fileUpload (onUpload)="onUpload($event)" [auto]="true"
@@ -54,20 +54,39 @@
     następującym wymiarze:
   </p>
 
-  <table class="mt-4">
-    <thead>
-    <th class=" w-60-px text-center">Lp.</th>
-    <th class="text-center">Rodzaj Usługi</th>
-    <th class="text-center">Liczba godzin</th>
-    </thead>
-    <tbody>
-    <tr *ngFor="let task of report.tasks;  let i = index">
-      <td class="text-right">{{i + 1}}</td>
-      <td class="text-left"><span class="font-semibold">{{task.key}}</span> {{task.summary}}</td>
-      <td class="text-center">{{task.hours}}</td>
-    </tr>
-    </tbody>
-  </table>
+  <div class="mt-4">
+    <div class="flex justify-content-end">
+      <button (click)="editReport()" [label]="edit ? 'Zapisz' : 'Zmodyfikuj zadania'" class="no-print" pButton
+              pRipple></button>
+    </div>
+    <table>
+      <thead>
+      <th class=" w-60-px text-center">Lp.</th>
+      <th class="text-center">Rodzaj Usługi</th>
+      <th class="w-100-px text-center">Liczba godzin</th>
+      </thead>
+      <tbody>
+      <tr *ngFor="let task of report.tasks;  let i = index">
+        <td class="text-right">{{i + 1}}</td>
+        <td *ngIf="!edit" class="text-left">
+          <span class="font-semibold">{{task.key}}</span> {{task.summary}}
+        </td>
+        <td *ngIf="edit" class="p-0 no-print">
+          <div class="flex align-items-center">
+            <input [(ngModel)]="task.key" class="w-7rem h-edit mr-edit ml-edit font-bold" pInputText/>
+            <input [(ngModel)]="task.summary" class="flex-1 h-edit mr-edit" pInputText/>
+          </div>
+        </td>
+        <td *ngIf="!edit" class="text-center">{{task.hours}}</td>
+        <td *ngIf="edit" class="p-0 no-print">
+          <div class="flex align-items-center">
+            <input [(ngModel)]="task.hours" class="h-edit mr-edit ml-edit w-full text-center" pInputText/>
+          </div>
+        </td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
 
   <div class="grid sign mt-5">
     <div class="col-4 col-offset-8 text-center">
@@ -83,7 +102,9 @@
       data: {{report.date}}
     </div>
     <div class="col-4 col-offset-8 text-center sign-img" [style.top]="imgSignTop+'px'" [style.left]="imgSignLeft+'px'">
-      <img #signImg class="{{checkImageToDisplay()}}" src="" width="250" (dragstart)="imgDragStart($event)" (dragend)="imgDragEnd($event)" />
+      <img #signImg (dragend)="imgDragEnd($event)" (dragstart)="imgDragStart($event)" class="{{checkImageToDisplay()}}"
+           src=""
+           width="250"/>
     </div>
 
   </div>
