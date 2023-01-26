@@ -19,6 +19,7 @@ export class ReportComponent implements OnInit {
   report: Report;
   contract: string = '';
   displayContractForm: boolean = false;
+  edit: boolean = false;
 
   imgSignLeft: number = null;
   imgSignTop: number = null;
@@ -42,7 +43,9 @@ export class ReportComponent implements OnInit {
   }
 
   print() {
-    window.print();
+    this.edit = false;
+    document.title = `Raport_${this.report.name.replace(' ', '_')}_za_okres_${this.report.period.toLowerCase().replace(' ', '_')}`
+    setTimeout(() => window.print(), 1)
   }
 
   uploadSign(event: any) {
@@ -91,5 +94,9 @@ export class ReportComponent implements OnInit {
     this.imgSignLeft += $event.clientX - this.imgDragStartX;
     this.imgSignTop += $event.clientY - this.imgDragStartY;
     this.saveImgPositionToStorage();
+  }
+
+  editReport() {
+    this.edit = !this.edit;
   }
 }
