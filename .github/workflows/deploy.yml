@@ -3,9 +3,6 @@ name: Deploy
 on:
   push:
     branches: [ main ]
-  pull_request:
-    branches: [ main ]
-
 
 jobs:
   build:
@@ -30,7 +27,7 @@ jobs:
           curl -X POST -H 'Content-type: application/json' --data '{"text":"Nowa wersja aplikacji do generowania raportów PPL jest dostępna. Możesz ją sprawdzić pod adresem: https://janjakubik.pl/"}' ${{secrets.PPL_SLACK_NOTIFICATION}}
       - run: |
           curl -X PATCH https://janjakubik.pl/git-reload --header "${{secrets.MAGIC_HEADER_NAME}}: ${{secrets.MAGIC_HEADER_VALUE}}"
-      - name: Sleep for 30 seconds
+      - name: Sleep for 60 seconds
         uses: jakejarvis/wait-action@master
         with:
           time: '30s'
