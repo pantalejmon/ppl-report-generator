@@ -38,6 +38,11 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 
 ### Co nowego
 
+#### 0.2.1
+
+- Poprawiony błąd w wyświetlaniu pełnej nazwy pracownika na raporcie
+- Poprawiony błąd zliczania godzin
+
 #### 0.2.0
 
 - Aktualizacja do Angulara 15 i Nesta 9

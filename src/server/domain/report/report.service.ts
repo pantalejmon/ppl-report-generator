@@ -34,7 +34,7 @@ export class ReportService {
         }
 
         if (!report.name) {
-            report.name = this.prepareName(row[NAME]);
+            report.name = this.readName(row);
         }
 
         if (task) {
@@ -48,8 +48,19 @@ export class ReportService {
         }
     }
 
+    private readName(row: any) {
+        let fullName: string = row[NAME];
+
+        if (fullName.includes(',')) {
+            fullName = this.prepareName(fullName);
+        }
+
+        return fullName;
+    }
+
     private prepareName(fullname: string) {
-        const nameArray: string[] = fullname.split(', ')
+        const nameArray: string[] = fullname.replace(/\s/g, '')
+            .split(',')
         return `${nameArray[1]} ${nameArray[0]}`;
     }
 }
