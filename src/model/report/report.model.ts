@@ -25,7 +25,7 @@ export class Report {
 
     sumHours(): number {
         return this.tasks
-            .map(task => task.hours)
+            .map(task => +task.hours)
             .reduce((a, b) => a + b, 0);
     }
 }
