@@ -19,6 +19,8 @@ body {
 
 @page {
   size: A4;
+  margin-top: 2cm;
+  margin-bottom: 2cm;
 }
 
 @media print {
@@ -26,8 +28,8 @@ body {
   body {
     display: table;
     table-layout: fixed;
-    padding-top: 2.5cm;
-    padding-bottom: 2.5cm;
+    margin-top: 0;
+    margin-bottom: 0;
     height: auto;
     position: relative;
   }
