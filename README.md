@@ -38,6 +38,10 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 
 ### Co nowego
 
+#### 0.2.2
+
+- Poprawiony błąd zbyt wąskich marginesów na wydruku wielostronicowym
+
 #### 0.2.1
 
 - Poprawiony błąd w wyświetlaniu pełnej nazwy pracownika na raporcie
