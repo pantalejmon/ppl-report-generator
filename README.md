@@ -38,6 +38,11 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 
 ### Co nowego
 
+#### 0.2.3
+
+- Aktualizacja do Angulara 16, Nesta 10, PrimeNG 16
+- budowanie: node 16, 18 i 20
+
 #### 0.2.2
 
 - Poprawiony błąd zbyt wąskich marginesów na wydruku wielostronicowym
