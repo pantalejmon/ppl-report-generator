@@ -38,6 +38,11 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 
 ### Co nowego
 
+#### 0.2.4
+
+- Aktualizacja do Angulara 17, PrimeNG 17
+- budowanie: node 18 i 20
+
 #### 0.2.3
 
 - Aktualizacja do Angulara 16, Nesta 10, PrimeNG 16
