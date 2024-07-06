@@ -17,7 +17,6 @@
   <img src="https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white" alt="Angular"/>
   <img src="https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white" alt="Typescript"/>
   <img src="https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white" alt="Node"/>
-  <img src="https://img.shields.io/badge/Heroku-430098?style=for-the-badge&logo=heroku&logoColor=white" alt="Heroku"/>
 </p>
 
 
@@ -37,6 +36,11 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 7. Ciesz się stworzonym raportem
 
 ### Co nowego
+
+#### 0.3.0
+
+- Migracja na nowy VPS
+- Dodanie modułu statystyk o użytkowaniu aplikacji
 
 #### 0.2.4
 

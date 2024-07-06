@@ -1,13 +1,18 @@
 import {Injectable} from '@nestjs/common';
-import {DATE, HOURS, KEY, MONTHS, NAME, Report, SUMMARY, Task} from 'src/model/report/report.model';
+import {DATE, HOURS, KEY, MONTHS, NAME, Report, SUMMARY, Task, USERNAME} from 'src/model/report/report.model';
 import {read, utils, WorkBook, WorkSheet} from 'xlsx'
+import {UserService} from "../statistic/user/user.service";
 
 @Injectable()
 export class ReportService {
 
+    constructor(private userService: UserService) {
+    }
+
     async generateReport(excel: Express.Multer.File) {
         const reportData: Report = this.excelToReportModel(excel);
         reportData.prepareDate();
+        await this.userService.invoke(reportData.username, reportData.name);
 
         return reportData;
     }
@@ -37,6 +42,10 @@ export class ReportService {
             report.name = this.readName(row);
         }
 
+        if (!report.username) {
+            report.username = this.readUsername(row);
+        }
+
         if (task) {
             task.hours += row[HOURS];
         } else {
@@ -56,6 +65,10 @@ export class ReportService {
         }
 
         return fullName;
+    }
+
+    private readUsername(row: any) {
+        return row[USERNAME];
     }
 
     private prepareName(fullname: string) {
