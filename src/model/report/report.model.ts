@@ -3,9 +3,10 @@ export const KEY = 'Issue Key';
 export const SUMMARY = 'Issue summary';
 export const DATE = 'Work date';
 export const NAME = 'Full name';
-
+export const USERNAME = 'Username';
 
 export class Report {
+    username: string = '';
     name: string = '';
     date: string = ''
     period: string;
