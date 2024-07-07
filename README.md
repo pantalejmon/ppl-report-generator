@@ -37,6 +37,11 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 
 ### Co nowego
 
+#### 0.3.1
+
+- Nowy motyw
+- Drobne poprawki UI
+
 #### 0.3.0
 
 - Migracja na nowy VPS
