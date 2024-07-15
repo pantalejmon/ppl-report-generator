@@ -3,7 +3,7 @@
     <div class="w-full toolbar flex align-items-center flex-wrap">
       <div class=" flex flex-1 align-items-center justify-content-center">
         <p-fileUpload (onUpload)="onUpload($event)" [auto]="true"
-                      accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+                      accept=".xlsx, .xls"
                       chooseIcon="pi pi-file-excel"
                       chooseLabel="Wgraj" mode="basic"
                       name="excel" styleClass="hidden md:block" url="api/report">

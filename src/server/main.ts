@@ -31,6 +31,8 @@ async function bootstrap(): Promise<void> {
 
     // Run app
     await app.listen(process.env.PORT || 8080);
+
+    console.log('server url: ', await app.getUrl());
 }
 
 bootstrap()
