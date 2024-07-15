@@ -37,6 +37,10 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 
 ### Co nowego
 
+#### 0.3.2
+
+- obsługa xls
+
 #### 0.3.1
 
 - Nowy motyw
