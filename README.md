@@ -37,6 +37,10 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 
 ### Co nowego
 
+#### 0.3.3
+
+- Ustawianie daty na ostatni dzień miesiąca
+
 #### 0.3.2
 
 - Obsługa xls

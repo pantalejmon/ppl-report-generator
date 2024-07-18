@@ -1,3 +1,5 @@
+import * as dayjs from "dayjs";
+
 export const HOURS = 'Hours';
 export const KEY = 'Issue Key';
 export const SUMMARY = 'Issue summary';
@@ -17,17 +19,26 @@ export class Report {
     }
 
     prepareDate(): void {
-        const currentDate = new Date();
-        const day = `${currentDate.getDate()}`.padStart(2, '0')
-        const month = `${currentDate.getMonth() + 1}`.padStart(2, '0')
+        const date = this.getDateOfLastDayInMonth();
 
-        this.date = `${day}.${month}.${currentDate.getFullYear()}`;
+        const day = `${date.date()}`.padStart(2, '0');
+        const month = `${date.month() + 1}`.padStart(2, '0');
+
+        this.date = `${day}.${month}.${date.year()}`;
     }
 
     sumHours(): number {
         return this.tasks
             .map(task => +task.hours)
             .reduce((a, b) => a + b, 0);
+    }
+
+    private getDateOfLastDayInMonth() {
+        let date = dayjs();
+        if (date.date() < 14) {
+            date = date.subtract(1, 'month');
+        }
+        return date.endOf('month');
     }
 }
 
