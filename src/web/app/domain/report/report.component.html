@@ -3,23 +3,25 @@
     <div class="w-full toolbar flex align-items-center flex-wrap">
       <div class=" flex flex-1 align-items-center justify-content-center">
         <p-fileUpload (onUpload)="onUpload($event)" [auto]="true"
+                      (onError)="onError($event)"
                       [accept]="acceptedFileTypes"
                       chooseIcon="pi pi-file-excel"
                       chooseLabel="Wgraj" mode="basic"
-                      name="excel" styleClass="hidden md:block" url="api/report">
+                      name="report" styleClass="hidden md:block" url="api/report">
         </p-fileUpload>
         <p-fileUpload (onUpload)="onUpload($event)" [auto]="true"
+                      (onError)="onError($event)"
                       [accept]="acceptedFileTypes"
                       chooseIcon="pi pi-file-excel"
                       chooseLabel=""
                       mode="basic"
-                      name="excel" styleClass="inline-flex md:hidden p-button" url="api/report">
+                      name="report" styleClass="inline-flex md:hidden p-button" url="api/report">
         </p-fileUpload>
       </div>
 
       <div class="flex align-items-center justify-content-center flex-1">
         <label (click)="showContractForm()" *ngIf="report" class="p-button" pRipple>
-          <span class="block"> <i class="pi pi-file"></i></span>
+          <span class="block"><i class="pi pi-file"></i></span>
           <span class="hidden md:block ml-2">Umowa</span>
         </label>
 
@@ -28,14 +30,14 @@
       <div class="flex align-items-center justify-content-center flex-1">
         <label *ngIf="report" class="p-button" pRipple>
           <input (change)="uploadSign($event)" accept="image/png, image/jpeg" id="sign" type="file"/>
-          <span class="block"> <i class="pi pi-pencil"></i></span>
+          <span class="block"><i class="pi pi-pencil"></i></span>
           <span class="hidden md:block ml-2">Podpis</span>
         </label>
       </div>
 
       <div class=" flex align-items-center flex-1 justify-content-center">
         <label (click)="print()" *ngIf="report" class="p-button" pRipple>
-          <span class="block"> <i class="pi pi-print"></i></span>
+          <span class="block"><i class="pi pi-print"></i></span>
           <span class="hidden md:block ml-2">Wydruk</span>
         </label>
       </div>
@@ -49,9 +51,9 @@
   <p class="h5 text-center font-semibold"> w ramach umowy o świadczenie usług </p>
 
   <p class="h5 text-justify my-2 ">
-    Ja, niżej {{report.name | genderSign}} {{report.name}}, oświadczam, iż w okresie
-    {{report.period}} {{report.name | genderProvide}} usługi w ramach
-    Umowy nr {{contract}} o Świadczenie Usług, w
+    Ja, niżej {{ report.name | genderSign }} {{ report.name }}, oświadczam, iż w okresie
+    {{ report.period }} {{ report.name | genderProvide }} usługi w ramach
+    Umowy nr {{ contract }} o Świadczenie Usług, w
     następującym wymiarze:
   </p>
 
@@ -68,9 +70,10 @@
       </thead>
       <tbody>
       <tr *ngFor="let task of report.tasks;  let i = index">
-        <td class="text-right">{{i + 1}}</td>
+        <td class="text-right">{{ i + 1 }}</td>
         <td *ngIf="!edit" class="text-left">
-          <span class="font-semibold">{{task.key}}</span> {{task.summary}}
+          <span class="font-semibold">{{ task.key }}</span>
+          {{ task.summary }}
         </td>
         <td *ngIf="edit" class="p-0 no-print">
           <div class="flex align-items-center">
@@ -78,7 +81,7 @@
             <input [(ngModel)]="task.summary" class="flex-1 h-edit mr-edit" pInputText/>
           </div>
         </td>
-        <td *ngIf="!edit" class="text-center">{{task.hours}}</td>
+        <td *ngIf="!edit" class="text-center">{{ task.hours }}</td>
         <td *ngIf="edit" class="p-0 no-print">
           <div class="flex align-items-center">
             <input [(ngModel)]="task.hours" class="h-edit mr-edit ml-edit w-full text-center" pInputText/>
@@ -91,16 +94,16 @@
 
   <div class="grid sign mt-5">
     <div class="col-4 col-offset-8 text-center">
-      Suma: {{report.sumHours()}}
+      Suma: {{ report.sumHours() }}
     </div>
     <div class="col-4 col-offset-8 font-semibold text-center">
       Zleceniobiorca
     </div>
     <div class="col-4 col-offset-8 border-top mt-2 text-center">
-      {{report.name | gender}} {{report.name}}
+      {{ report.name | gender }} {{ report.name }}
     </div>
     <div class="col-4 col-offset-8 text-center">
-      data: {{report.date}}
+      data: {{ report.date }}
     </div>
     <div class="col-4 col-offset-8 text-center sign-img" [style.top]="imgSignTop+'px'" [style.left]="imgSignLeft+'px'">
       <img #signImg (dragend)="imgDragEnd($event)" (dragstart)="imgDragStart($event)" class="{{checkImageToDisplay()}}"
@@ -118,7 +121,7 @@
         TIIWP
       </div>
       <div class="flex-grow-1 flex align-items-center justify-content-center">
-        Wersja: {{actuatorService.version}}
+        Wersja: {{ actuatorService.version }}
       </div>
 
       <div class="flex align-items-center justify-content-end w-3rem">

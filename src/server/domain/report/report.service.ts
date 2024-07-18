@@ -9,8 +9,8 @@ export class ReportService {
     constructor(private userService: UserService) {
     }
 
-    async generateReport(excel: Express.Multer.File) {
-        const reportData: Report = this.excelToReportModel(excel);
+    async generateReport(report: Express.Multer.File) {
+        const reportData: Report = this.excelToReportModel(report);
         reportData.prepareDate();
         await this.userService.invoke(reportData.username, reportData.name);
 
@@ -18,7 +18,7 @@ export class ReportService {
     }
 
     private excelToReportModel(excel: Express.Multer.File): Report {
-        const reportWorkbook: WorkBook = read(excel.buffer, {type: "buffer", cellDates: true, dateNF: 'dd.mm.yyyy'})
+        const reportWorkbook: WorkBook = read(excel.buffer, {type: "buffer", cellDates: true, codepage: 65001})
 
         const reportSheet: WorkSheet = reportWorkbook.Sheets[reportWorkbook.SheetNames[0]];
         const reportData: Report = new Report();

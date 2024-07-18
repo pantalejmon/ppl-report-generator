@@ -1,4 +1,14 @@
-import {Controller, FileTypeValidator, ParseFilePipe, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
+import {
+    Controller,
+    FileTypeValidator,
+    HttpException,
+    HttpStatus,
+    Logger,
+    ParseFilePipe,
+    Post,
+    UploadedFile,
+    UseInterceptors
+} from '@nestjs/common';
 import {ReportService} from "./report.service";
 import {FileInterceptor} from "@nestjs/platform-express";
 import {ACCEPTED_FILES} from "../../../model/report/accepted-types.model";
@@ -10,7 +20,7 @@ export class ReportController {
     }
 
     @Post()
-    @UseInterceptors(FileInterceptor('excel'))
+    @UseInterceptors(FileInterceptor('report'))
     async uploadFile(@UploadedFile(
         new ParseFilePipe({
                 validators: [new FileTypeValidator({
@@ -18,7 +28,17 @@ export class ReportController {
                 })]
             }
         )
-    ) excel: Express.Multer.File) {
-        return await this.reportService.generateReport(excel);
+    ) report: Express.Multer.File) {
+        try {
+            return await this.reportService.generateReport(report);
+        } catch (error) {
+            Logger.error(error)
+            throw new HttpException({
+                status: HttpStatus.I_AM_A_TEAPOT,
+                error: 'Wrong file'
+            }, HttpStatus.I_AM_A_TEAPOT, {
+                cause: error
+            })
+        }
     }
 }
