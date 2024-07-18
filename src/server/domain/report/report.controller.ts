@@ -1,7 +1,7 @@
-import {Controller, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
+import {Controller, FileTypeValidator, ParseFilePipe, Post, UploadedFile, UseInterceptors} from '@nestjs/common';
 import {ReportService} from "./report.service";
 import {FileInterceptor} from "@nestjs/platform-express";
-import {ApiOperation} from "@nestjs/swagger";
+import {ACCEPTED_FILES} from "../../../model/report/accepted-types.model";
 
 @Controller('report')
 export class ReportController {
@@ -10,13 +10,15 @@ export class ReportController {
     }
 
     @Post()
-    @ApiOperation({
-        summary: "Send report file to server",
-        requestBody: {
-            description: "XLS report file",
-            content: {"XLS file": {schema: {format: "binary"}}}, required: true}})
     @UseInterceptors(FileInterceptor('excel'))
-    async uploadFile(@UploadedFile() excel: Express.Multer.File) {
+    async uploadFile(@UploadedFile(
+        new ParseFilePipe({
+                validators: [new FileTypeValidator({
+                    fileType: new RegExp(`${ACCEPTED_FILES.join('|')}`)
+                })]
+            }
+        )
+    ) excel: Express.Multer.File) {
         return await this.reportService.generateReport(excel);
     }
 }

@@ -1,6 +1,7 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {Report} from "src/model/report/report.model";
 import {ActuatorService} from "../../infrastructure/actuator/actuator.service";
+import {ACCEPTED_FILES} from "../../../../model/report/accepted-types.model";
 
 @Component({
   selector: 'app-report',
@@ -15,6 +16,7 @@ export class ReportComponent implements OnInit {
   readonly IMG_LEFT_KEY = 'imgX';
   readonly IMG_TOP_KEY = 'imgY';
   readonly CONTRACT_KEY = 'contract';
+  readonly acceptedFileTypes = ACCEPTED_FILES.join(', ');
 
   report: Report;
   contract: string = '';
