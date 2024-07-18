@@ -28,7 +28,7 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 
 1. Zaloguj się do systemu JIRA i upewnij się że język ustawiony jest na angielski
 2. Wejdz w sekcje tempo, ustaw wybrany miesiąc i kliknij **...**
-3. Wybierz opcje eksport i format **XSLX**
+3. Wybierz opcje eksport i format **XLSX, XLS lub CSV**
 4. Wejdz do [aplikacji](https://janjakubik.pl)
 5. Wgraj plik, dodaj dodatkowe dane(Cachują się w pamięci przeglądarki), obraz podpisu można przesuwać myszką, kliknij
    wydruk
