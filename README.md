@@ -37,6 +37,10 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 
 ### Co nowego
 
+#### 0.3.4
+
+- Dodanie możliwości usunięcia wgranego podpisu z menu kontekstowego
+
 #### 0.3.3
 
 - Ustawianie daty na ostatni dzień miesiąca
