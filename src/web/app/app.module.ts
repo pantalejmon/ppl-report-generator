@@ -18,6 +18,7 @@ import {OverlayPanelModule} from "primeng/overlaypanel";
 import {RippleModule} from "primeng/ripple";
 import {GenderProvidePipe} from './domain/report/util/gender-provide.pipe';
 import {SidebarModule} from "primeng/sidebar";
+import {ContextMenuModule} from "primeng/contextmenu";
 
 @NgModule({
   declarations: [
@@ -40,6 +41,7 @@ import {SidebarModule} from "primeng/sidebar";
     OverlayPanelModule,
     RippleModule,
     SidebarModule,
+    ContextMenuModule,
   ],
   providers: [
     MessageService

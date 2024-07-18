@@ -106,10 +106,11 @@
       data: {{ report.date }}
     </div>
     <div class="col-4 col-offset-8 text-center sign-img" [style.top]="imgSignTop+'px'" [style.left]="imgSignLeft+'px'">
-      <img #signImg (dragend)="imgDragEnd($event)" (dragstart)="imgDragStart($event)" class="{{checkImageToDisplay()}}"
+      <img #signImg (dragend)="imgDragEnd($event)" (dragstart)="imgDragStart($event)" class="{{displayImageClass}}"
            src=""
            width="250"/>
     </div>
+    <p-contextMenu [model]="signMenu" [target]="signImg" appendTo="body"/>
 
   </div>
 </div>
