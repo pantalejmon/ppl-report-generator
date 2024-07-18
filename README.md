@@ -37,6 +37,13 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 
 ### Co nowego
 
+#### 0.3.2
+
+- Obsługa xls
+- Obsługa CSV
+- Poprawka buga po wgraniu błednego pliku
+- Walidacja plików po stonie backendu
+
 #### 0.3.1
 
 - Nowy motyw

@@ -1,9 +1,7 @@
 import {NestFactory} from '@nestjs/core';
 import {API, AppModule} from './app.module';
 import * as bodyParser from 'body-parser';
-import {ValidationPipe} from '@nestjs/common';
-import {DocumentBuilder, SwaggerModule} from '@nestjs/swagger';
-import * as version from 'project-version'
+import {Logger, ValidationPipe} from '@nestjs/common';
 import * as actuator from 'express-actuator';
 
 async function bootstrap(): Promise<void> {
@@ -20,18 +18,11 @@ async function bootstrap(): Promise<void> {
     app.use(actuator());
     app.setGlobalPrefix(API);
 
-    // Swagger config
-    const config = new DocumentBuilder()
-        .setTitle('PPL Report Generator')
-        .setDescription('Tool for generating PDF file from JIRA XLS Report')
-        .setVersion(version)
-        .build();
-    const document = SwaggerModule.createDocument(app, config);
-    SwaggerModule.setup('api', app, document);
-
     // Run app
     await app.listen(process.env.PORT || 8080);
+
+    Logger.log(await app.getUrl(), 'App URL');
 }
 
 bootstrap()
-    .then(() => console.log('[INFO] Backend started'));
+    .then(() => Logger.log('App started'));

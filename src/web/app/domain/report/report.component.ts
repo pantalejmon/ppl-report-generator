@@ -1,6 +1,10 @@
-import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, QueryList, ViewChild, ViewChildren} from '@angular/core';
 import {Report} from "src/model/report/report.model";
 import {ActuatorService} from "../../infrastructure/actuator/actuator.service";
+import {ACCEPTED_FILES} from "../../../../model/report/accepted-types.model";
+import {FileUpload, FileUploadErrorEvent, FileUploadEvent} from "primeng/fileupload";
+import {HttpEventType} from "@angular/common/http";
+import {MessageService} from "primeng/api";
 
 @Component({
   selector: 'app-report',
@@ -10,11 +14,13 @@ import {ActuatorService} from "../../infrastructure/actuator/actuator.service";
 export class ReportComponent implements OnInit {
 
   @ViewChild('signImg') img: ElementRef;
+  @ViewChildren(FileUpload) upload: QueryList<FileUpload>;
 
   readonly IMG_DATA_KEY = 'imgData';
   readonly IMG_LEFT_KEY = 'imgX';
   readonly IMG_TOP_KEY = 'imgY';
   readonly CONTRACT_KEY = 'contract';
+  readonly acceptedFileTypes = ACCEPTED_FILES.join(', ');
 
   report: Report;
   contract: string = '';
@@ -26,7 +32,7 @@ export class ReportComponent implements OnInit {
   imgDragStartX: number = null;
   imgDragStartY: number = null;
 
-  constructor(public actuatorService: ActuatorService) {
+  constructor(public actuatorService: ActuatorService, private messageService: MessageService) {
   }
 
   ngOnInit(): void {
@@ -35,10 +41,11 @@ export class ReportComponent implements OnInit {
     this.imgSignTop = Number(localStorage.getItem(this.IMG_TOP_KEY) ?? '45');
   }
 
-  onUpload(data) {
-    if (data.originalEvent.body) {
-      this.report = new Report(data.originalEvent.body);
-      setTimeout(() => this.loadImageFromStorage());
+  onUpload(data: FileUploadEvent) {
+    switch (data.originalEvent?.type) {
+      case HttpEventType.Response:
+        this.report = new Report(data.originalEvent.body);
+        setTimeout(() => this.loadImageFromStorage());
     }
   }
 
@@ -98,5 +105,11 @@ export class ReportComponent implements OnInit {
 
   editReport() {
     this.edit = !this.edit;
+  }
+
+  onError($event: FileUploadErrorEvent) {
+    this.upload.forEach(it => it.clear())
+    this.messageService.add({severity: 'error', summary: 'Error', detail: $event.error.error.error});
+    this.report = null;
   }
 }
