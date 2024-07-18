@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {isDevMode, NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -19,6 +19,7 @@ import {RippleModule} from "primeng/ripple";
 import {GenderProvidePipe} from './domain/report/util/gender-provide.pipe';
 import {SidebarModule} from "primeng/sidebar";
 import {ContextMenuModule} from "primeng/contextmenu";
+import {ServiceWorkerModule} from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -42,6 +43,10 @@ import {ContextMenuModule} from "primeng/contextmenu";
     RippleModule,
     SidebarModule,
     ContextMenuModule,
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: !isDevMode(),
+      registrationStrategy: 'registerWhenStable:30000'
+    }),
   ],
   providers: [
     MessageService

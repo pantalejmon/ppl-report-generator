@@ -35,7 +35,9 @@
               "src/web/styles.css"
             ],
             "scripts": [
-            ]
+            ],
+            "serviceWorker": true,
+            "ngswConfigPath": "ngsw-config.json"
           },
           "configurations": {
             "production": {

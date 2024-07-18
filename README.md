@@ -37,6 +37,10 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 
 ### Co nowego
 
+#### 0.3.5
+
+- Możliwość instalacji aplikacji
+
 #### 0.3.4
 
 - Dodanie możliwości usunięcia wgranego podpisu z menu kontekstowego
