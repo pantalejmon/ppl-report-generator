@@ -37,6 +37,11 @@ Aplikcja powstała w celu ułatwienia wystawiania podsumowujących raportów mie
 
 ### Co nowego
 
+#### 0.3.6
+
+- Poprawa konfiguracji budowania frontu
+- Ukrycie headerów http za pomocą biblioteki helmet
+
 #### 0.3.5
 
 - Możliwość instalacji aplikacji
