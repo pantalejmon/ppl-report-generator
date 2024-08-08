@@ -3,6 +3,7 @@ import {API, AppModule} from './app.module';
 import * as bodyParser from 'body-parser';
 import {Logger, ValidationPipe} from '@nestjs/common';
 import * as actuator from 'express-actuator';
+import helmet from "helmet";
 
 async function bootstrap(): Promise<void> {
 
@@ -10,6 +11,7 @@ async function bootstrap(): Promise<void> {
     const app = await NestFactory.create(AppModule, {logger: ['error', 'warn', 'debug', 'verbose', 'log']});
 
     app.useGlobalPipes(new ValidationPipe());
+    app.use(helmet())
 
     // Endpoint config
     app.use(bodyParser.json({limit: '5mb'}));

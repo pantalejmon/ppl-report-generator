@@ -60,12 +60,13 @@
                 }
               ],
               "outputHashing": "all",
-              "buildOptimizer": false,
+              "buildOptimizer": true,
               "optimization": true,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "aot": true
             },
             "development": {
               "outputHashing": "all",
@@ -74,7 +75,8 @@
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "aot": false
             }
           },
           "defaultConfiguration": "production"
