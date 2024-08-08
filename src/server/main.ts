@@ -11,7 +11,10 @@ async function bootstrap(): Promise<void> {
     const app = await NestFactory.create(AppModule, {logger: ['error', 'warn', 'debug', 'verbose', 'log']});
 
     app.useGlobalPipes(new ValidationPipe());
-    app.use(helmet())
+    app.use(helmet({
+            contentSecurityPolicy: false
+        }
+    ))
 
     // Endpoint config
     app.use(bodyParser.json({limit: '5mb'}));
